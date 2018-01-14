@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.Grid {
+    margin: auto;
+}
+
+.Cell {
+    float: left;
+    background-color: #e0e0e0;
+    margin-right: 1px;
+    margin-bottom: 1px;
+}
+
+.Cell.Alive {
+    background-color: #0eba2e;
+}
