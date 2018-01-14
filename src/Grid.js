@@ -37,6 +37,7 @@ class Grid extends Component {
 
     _start = () => {
         this._nextBtn.click();
+        clearTimeout(this._delayId);
         this._delayId = _.delay(this._start, 100);
     }
 
