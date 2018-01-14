@@ -33,6 +33,7 @@ class Grid extends Component {
                             width={cellWidth}
                             height={cellHeight}
                             coords={{ x, y }}
+                            alive={state === 1}
                         />))
                 }
                 </div>

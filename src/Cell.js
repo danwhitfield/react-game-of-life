@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-const INITIAL_STATE = { alive: false };
-
 class Cell extends Component {
 
     static defaultProps = {
@@ -10,13 +8,14 @@ class Cell extends Component {
         coords: {
             x: 0,
             y: 0
-        }
+        },
+        alive: false
     }
 
     constructor(props) {
         super(props);
 
-        this.state = INITIAL_STATE;
+        this.state = { alive: props.alive };
     }
 
     render() {
