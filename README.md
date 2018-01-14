@@ -12,6 +12,3 @@ npm start
 
 ## Usage
 Just click on the cells in the grid to make them alive, then you can either step though each each generation with the 'Next' button, or you can hit start to run the generations automatically.
-
-## Future Evolution
-This could be evolved to have a (possibly JSON) library of input matrices which have various well known patterns. Also, maybe the ability to export the current matrix as JSON.

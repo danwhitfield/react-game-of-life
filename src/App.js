@@ -11,25 +11,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">React Game of Life</h1>
         </header>
-        <Grid matrix={this._generateMatrix(50, 50)} />
+        <Grid />
       </div>
     );
-  }
-
-  _generateMatrix(nX, nY) {
-      const rows = [];
-
-      // Rows.
-      _.times(nY, y => {
-          const column = [];
-
-          // Columns.
-          _.times(nX, x => column.push(0));
-
-          rows.push(column);
-      });
-
-      return rows;
   }
 }
 

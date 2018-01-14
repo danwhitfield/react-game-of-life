@@ -5,6 +5,8 @@ import Cell from './Cell';
 class Grid extends Component {
 
     static defaultProps = {
+        width: 50,
+        height: 50,
         cellWidth: 10,
         cellHeight: 10
     }
@@ -16,24 +18,22 @@ class Grid extends Component {
     }
 
     render() {
-        const { cellWidth, cellHeight, matrix } = this.props;
-        const n = matrix.length;
+        const { width, height, cellWidth, cellHeight } = this.props;
 
         return (
             <div>
                 <div className="Grid" style={{
-                    width: ((n * cellWidth) + n) + 'px',
-                    height: ((n * cellHeight) + n) + 'px',
+                    width: ((width * cellWidth) + width) + 'px',
+                    height: ((height * cellHeight) + height) + 'px',
                 }}>
                 {
-                    _.map(matrix, (row, y) => _.map(row, (state, x) =>
+                    _.times(height, y => _.times(width, x =>
                         <Cell
                             ref={ cell => { this._cells[this._buildCellKey(cell.getCoordinates())] = cell; } }
                             key={ this._buildCellKey({ x, y }) }
                             width={cellWidth}
                             height={cellHeight}
                             coords={{ x, y }}
-                            alive={state === 1}
                         />))
                 }
                 </div>
