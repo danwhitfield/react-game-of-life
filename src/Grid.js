@@ -16,8 +16,8 @@ class Grid extends Component {
     }
 
     render() {
-        const n = this.props.matrix.length;
-        const { cellWidth, cellHeight } = this.props;
+        const { cellWidth, cellHeight, matrix } = this.props;
+        const n = matrix.length;
 
         return (
             <div>
@@ -26,7 +26,7 @@ class Grid extends Component {
                     height: ((n * cellHeight) + n) + 'px',
                 }}>
                 {
-                    _.map(this.props.matrix, (row, x) => _.map(row, (state, y) =>
+                    _.map(matrix, (row, y) => _.map(row, (state, x) =>
                         <Cell
                             ref={ cell => { this._cells[this._buildCellKey(cell.getCoordinates())] = cell; } }
                             key={ this._buildCellKey({ x, y }) }
