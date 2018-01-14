@@ -1,15 +1,9 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import Cell from './Cell';
+import { GRID_WIDTH, GRID_HEIGHT, CELL_WIDTH, CELL_HEIGHT } from './constants';
 
 class Grid extends Component {
-
-    static defaultProps = {
-        width: 50,
-        height: 50,
-        cellWidth: 10,
-        cellHeight: 10
-    }
 
     constructor(props) {
         super(props);
@@ -18,21 +12,17 @@ class Grid extends Component {
     }
 
     render() {
-        const { width, height, cellWidth, cellHeight } = this.props;
-
         return (
             <div>
                 <div className="Grid" style={{
-                    width: ((width * cellWidth) + width) + 'px',
-                    height: ((height * cellHeight) + height) + 'px',
+                    width: ((GRID_WIDTH * CELL_WIDTH) + GRID_WIDTH) + 'px',
+                    height: ((GRID_HEIGHT * CELL_HEIGHT) + GRID_HEIGHT) + 'px',
                 }}>
                 {
-                    _.times(height, y => _.times(width, x =>
+                    _.times(GRID_HEIGHT, y => _.times(GRID_WIDTH, x =>
                         <Cell
                             ref={ cell => { this._cells[this._buildCellKey(cell.getCoordinates())] = cell; } }
                             key={ this._buildCellKey({ x, y }) }
-                            width={cellWidth}
-                            height={cellHeight}
                             coords={{ x, y }}
                         />))
                 }

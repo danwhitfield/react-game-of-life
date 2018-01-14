@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
+import { CELL_WIDTH, CELL_HEIGHT } from './constants';
 
 class Cell extends Component {
 
     static defaultProps = {
-        width: 10,
-        height: 10,
         coords: {
             x: 0,
             y: 0
-        },
-        alive: false
+        }
     }
 
     constructor(props) {
         super(props);
 
-        this.state = { alive: props.alive };
+        this.state = { alive: false };
     }
 
     render() {
@@ -24,8 +22,8 @@ class Cell extends Component {
                 onClick={this._selectionHandler}
                 className={`Cell ${this.isAlive() ? 'Alive' : ''}`}
                 style={{
-                    width: this.props.width + 'px',
-                    height: this.props.height + 'px'
+                    width: CELL_WIDTH + 'px',
+                    height: CELL_HEIGHT + 'px'
                 }}
             ></div>
         );
